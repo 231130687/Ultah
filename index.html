@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 21st Birthday, Natalia!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFD1DC, #FFB347);
+            overflow-x: hidden;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: radial-gradient(circle, #FFF 30%, #F06292);
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .message-container {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .message {
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .button-container button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            background: #FF6F61;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .button-container button:hover {
+            background: #FF8A65;
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .confetti .piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: red;
+            animation: drop 4s ease-in-out infinite;
+        }
+        @keyframes drop {
+            0% {
+                transform: translateY(-10vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Happy 21st Birthday, Natalia!</h1>
+        <p>Today we celebrate you and all the amazing things you bring to the world!</p>
+    </div>
+
+    <div class="message-container">
+        <div class="message">
+          <h1>Selamat Ulang Tahun!</h1>
+          <p>Kakak tersayang, Natalia Matondang,</p>
+          <p class="birthday-wish">"Semoga tahun ini membawa kebahagiaan, kesuksesan yang melimpah dan sering-seringlah kasih adekmu ini duit."</p>
+          <p>Semoga semua impianmu menjadi kenyataan di usia ke-21 ini.</p>
+          <p>Dengan cinta, dari adikmu ❤️</p>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="showSurprise()">Click for a Surprise!</button>
+    </div>
+
+    <div class="confetti" id="confetti"></div>
+
+    <div class="balloons">
+        <div class="balloon" style="left: 10%; animation-duration: 6s;"></div>
+        <div class="balloon" style="left: 30%; animation-duration: 7s;"></div>
+        <div class="balloon" style="left: 50%; animation-duration: 5s;"></div>
+        <div class="balloon" style="left: 70%; animation-duration: 8s;"></div>
+        <div class="balloon" style="left: 90%; animation-duration: 6.5s;"></div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            const confettiContainer = document.getElementById('confetti');
+            for (let i = 0; i < 100; i++) {
+                const piece = document.createElement('div');
+                piece.classList.add('piece');
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.backgroundColor = ['#FF4081', '#3F51B5', '#FFC107', '#4CAF50'][Math.floor(Math.random() * 4)];
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                confettiContainer.appendChild(piece);
+            }
+            alert("🎉 Happy Birthday, Natalia! 🎉");
+        }
+    </script>
+</body>
+</html>
